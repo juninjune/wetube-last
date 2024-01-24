@@ -1,0 +1,8 @@
+extends base.pug
+
+block content 
+    h4 Upload New Video
+    form(method="POST")
+        input(name="title", placeholder="Video Title", required, type="text")
+        input(value="Save",type="submit")
+    
