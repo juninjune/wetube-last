@@ -1,0 +1,11 @@
+extends base.pug
+
+block content 
+    if errorMessage
+        span=errorMessage
+    h4 Upload New Video
+    form(method="POST", enctype="multipart/form-data")
+        label(for="uploaded file") upload file
+        input(type="file" id="uploaded file", name="file", accept="image/*")
+        input(value="Upload",type="submit")
+    

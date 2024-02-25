@@ -1,0 +1,10 @@
+extends base.pug
+
+block content 
+    h4 Edit Profile
+    form(method="POST")
+        input(placeholder="Name", name="name", value=loggedInUser.name, type="text", required)
+        input(placeholder="Email", name="email", value=loggedInUser.email, type="email", required)
+        input(placeholder="Username", name="username", value=loggedInUser.username, type="text", required)
+        input(placeholder="Location", name="location", value=loggedInUser.location, type="text", required)
+        input(type="submit", value="Update Profile")
