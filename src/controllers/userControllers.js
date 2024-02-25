@@ -172,6 +172,29 @@ export const postEdit = async (req, res) => {
     body: { name, email, username, location },
   } = req;
 
+  const user = await User.findById(_id);
+
+  // Check Email
+  // Is email changed?
+  if (user.email !== email) {
+    // Is email already exist?
+    const emailExists = await User.exists({ email: email });
+    if (emailExists) {
+      // Email already exist
+      return res.redirect("/users/edit");
+    }
+  }
+
+  // Check User name
+  if (user.username !== username) {
+    // Is username already exist?
+    const usernameExists = await User.exists({ username: username });
+    if (usernameExists) {
+      // Username already exist
+      return res.redirect("/users/edit");
+    }
+  }
+
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
