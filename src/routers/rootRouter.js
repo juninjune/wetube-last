@@ -27,10 +27,5 @@ rootRouter
   .get(getLogin)
   .post(postLogin);
 rootRouter.get("/search", search);
-rootRouter
-  .all(protectorMiddleware)
-  .route("/uploadtext")
-  .get(getUploadText)
-  .post(avatarUpload.single("file"), postUploadText);
 
 export default rootRouter;
